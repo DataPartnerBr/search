@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- <ion-list>
+  <ion-item *ngFor="let c of countries">
+    <ion-avatar item-left>
+      <img src="https://media.gettyimages.com/photos/roasted-coffee-beans-picture-id837841532?b=1&k=6&m=837841532&s=170x170&h=tmieAedh5Qnh1s6kyAI9xqofS-oFgCkw-xc_CE3RSV4=">
+    </ion-avatar>
+    <h2>{{c.title}}</h2>
+    <p>Mensagem: {{c.message}}, Ativo: {{c.active}}</p>
+  </ion-item>
+</ion-list> -->
+
+<ion-list>
+  <ion-item *ngFor="let c of countries; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+    <ion-avatar item-left>
+      <img src="https://media.gettyimages.com/photos/roasted-coffee-beans-picture-id837841532?b=1&k=6&m=837841532&s=170x170&h=tmieAedh5Qnh1s6kyAI9xqofS-oFgCkw-xc_CE3RSV4=">
+    </ion-avatar>
+    <div class="title">
+      {{c.title}}
+      <ion-icon color="success" item-right [name]="isGroupShown(i) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+    </div>
+    <div class="notice" *ngIf="isGroupShown(i)">{{c.message}}</div>
+  </ion-item>
+</ion-list>
+
+
+</ion-content>
